@@ -40,45 +40,24 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text('Flutter Demo', style: TextStyle(color: Colors.black)),
       ),
 
-      body: Center(
-        child: Container(
-          color: Colors.black,
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              Container(
-                height: 100.0,
-                width: 100.0,
-
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(24),
-                  color: Colors.blue,
-                ),
-                child: Center(
-                  child: Text(
-                    'data',
-                    style: TextStyle(color: const Color.fromARGB(255, 0, 0, 0)),
-                  ),
-                ),
-              ),
-              Container(
-                height: 100.0,
-                width: 100.0,
-
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(24),
-                  color: const Color.fromARGB(255, 41, 193, 21),
-                ),
-                child: Center(
-                  child: Text(
-                    'data',
-                    style: TextStyle(color: const Color.fromARGB(255, 0, 0, 0)),
-                  ),
-                ),
-              ),
-            ],
+      body: Column(
+        children: [
+          Container(
+            height: 500.0,
+            color: Colors.black,
+            child: Image.network(
+              'https://i0.wp.com/picjumbo.com/wp-content/uploads/modern-sporty-suv-car-front-view-free-photo.jpg?w=600&quality=80',
+            ),
           ),
-        ),
+          Container(
+            color: Colors.black,
+            child: Image.asset(
+              'assets/images/pizza.jpg',
+              height: double.infinity,
+              fit: BoxFit.cover,
+            ),
+          ),
+        ],
       ),
     );
   }
