@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -11,54 +11,49 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Auth',
       theme: ThemeData(
-        colorScheme: .fromSeed(
-          seedColor: const Color.fromARGB(255, 255, 255, 255),
-          brightness: Brightness.dark,
-        ),
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.teal,
+        brightness: Brightness.dark,
+        )
       ),
-      home: const MyHomePage(title: 'Flutter Demo'),
+      home: MyHomePage(),
     );
   }
 }
 
 class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
-  final String title;
+  const MyHomePage({super.key});
+
   @override
   State<MyHomePage> createState() => _MyHomePageState();
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  int currentIndex = 0;
   @override
   Widget build(BuildContext context) {
+    
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.amber,
-        centerTitle: true,
-        title: Text('Flutter Demo', style: TextStyle(color: Colors.black)),
-      ),
-
-      body: Column(
-        children: [
-          Container(
-            height: 500.0,
-            color: Colors.black,
-            child: Image.network(
-              'https://i0.wp.com/picjumbo.com/wp-content/uploads/modern-sporty-suv-car-front-view-free-photo.jpg?w=600&quality=80',
-            ),
-          ),
-          Container(
-            color: Colors.black,
-            child: Image.asset(
-              'assets/images/pizza.jpg',
-              height: double.infinity,
-              fit: BoxFit.cover,
-            ),
-          ),
-        ],
-      ),
+        appBar: AppBar(
+          title: Text('Flutter', style: TextStyle(color: Colors.red)),
+          centerTitle: true,
+        ),
+        body: currentIndex == 0
+            ? Center(child: Text('1'))
+            : Center(child: Text('2')),
+        drawer: Drawer(),
+        bottomNavigationBar: NavigationBar(
+          destinations: [
+            NavigationDestination(icon: Icon(Icons.home), label: 'Home'),
+            NavigationDestination(icon: Icon(Icons.person), label: 'Profile'),
+          ],
+          onDestinationSelected: (int value) {
+            setState(() {
+              currentIndex = value;
+            });
+          },
+          selectedIndex: currentIndex,
+        ),
     );
   }
 }
