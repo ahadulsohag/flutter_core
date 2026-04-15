@@ -22,6 +22,7 @@ class _WidgetTreeState extends State<WidgetTree> {
         title: Text('Flutter', style: TextStyle(color: Colors.red)),
         centerTitle: true,
         actions: [
+          
           IconButton(
             onPressed: () {
               selectedIconNotifier.value = !selectedIconNotifier.value;
@@ -34,15 +35,12 @@ class _WidgetTreeState extends State<WidgetTree> {
             ),
           ),
           IconButton(
-            
             onPressed: () {
-              
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  
                   builder: (context) {
-                    return SettingsPage();
+                    return SettingsPage(title: 'Settings Page haha');
                   },
                 ),
               );

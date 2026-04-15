@@ -20,6 +20,48 @@ class _HomePageState extends State<HomePage> {
         padding: const EdgeInsetsGeometry.all(20.0),
         child: Column(
           children: [
+            ElevatedButton(
+              onPressed: () {
+                ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(
+                    content: Text('haha\nhihi\nhooohooo'),
+                    duration: Duration(seconds: 4),
+                    behavior: SnackBarBehavior.floating,
+                  ),
+                );
+              },
+              child: Text('Open Snackbar'),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                showDialog(
+                  context: context,
+                  builder: (context) {
+                    return AlertDialog(
+                      title: Text('Alert'),
+                      content: Text('data'),
+                      actions: [
+                        FilledButton(
+                          onPressed: () {
+                            Navigator.pop(context);
+                          },
+                          child: Text('Back'),
+                        ),
+                      ],
+                    );
+                  },
+                );
+              },
+              child: Text('Open Dialog'),
+            ),
+            Divider(
+              color: Colors.blue,
+              height: 20.0,
+              thickness: 5.0,
+              indent: 132.0,
+              radius: BorderRadius.circular(1134.0),
+            ),
+            SizedBox(height: 150.0, child: VerticalDivider(width: 125.0)),
             DropdownButton(
               value: menuItem,
               hint: Text('Elements'),
