@@ -57,7 +57,7 @@ class _HomePageState extends State<HomePage> {
             Divider(
               color: Colors.blue,
               height: 20.0,
-              thickness: 5.0,
+              thickness: 55.0,
               indent: 132.0,
               radius: BorderRadius.circular(1134.0),
             ),
