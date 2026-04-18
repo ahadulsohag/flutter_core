@@ -25,50 +25,52 @@ class _LoginPageState extends State<LoginPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(),
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.all(18.0),
+      body: Center(
+        child: SingleChildScrollView(
+          child: Padding(
+            padding: const EdgeInsets.all(18.0),
 
-          child: Column(
-            children: [
-              HeroWidget(title: 'login'),
-              SizedBox(height: 40.9),
-              TextField(
-                controller: controllerMail,
-                decoration: InputDecoration(
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(12.0),
+            child: Column(
+              children: [
+                HeroWidget(title: 'login'),
+                SizedBox(height: 40.9),
+                TextField(
+                  controller: controllerMail,
+                  decoration: InputDecoration(
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(12.0),
+                    ),
+                    hint: Text('Email'),
                   ),
-                  hint: Text('Email'),
+                  onEditingComplete: () {
+                    setState(() {});
+                  },
                 ),
-                onEditingComplete: () {
-                  setState(() {});
-                },
-              ),
-              SizedBox(height: 10.0),
-              TextField(
-                controller: controllerPw,
-                decoration: InputDecoration(
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(12.0),
+                SizedBox(height: 10.0),
+                TextField(
+                  controller: controllerPw,
+                  decoration: InputDecoration(
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(12.0),
+                    ),
+                    hint: Text('Password'),
                   ),
-                  hint: Text('Password'),
+                  onEditingComplete: () {
+                    setState(() {});
+                  },
                 ),
-                onEditingComplete: () {
-                  setState(() {});
-                },
-              ),
-              SizedBox(height: 18.9),
-              ElevatedButton(
-                onPressed: () {
-                  loginAuth();
-                },
-                style: ElevatedButton.styleFrom(
-                  minimumSize: Size(double.infinity, 38.0),
+                SizedBox(height: 18.9),
+                ElevatedButton(
+                  onPressed: () {
+                    loginAuth();
+                  },
+                  style: ElevatedButton.styleFrom(
+                    minimumSize: Size(double.infinity, 38.0),
+                  ),
+                  child: Text('Login'),
                 ),
-                child: Text('Login'),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),
