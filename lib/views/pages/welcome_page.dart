@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_core/views/pages/widget_tree.dart';
+import 'package:flutter_core/views/pages/login_page.dart';
 import 'package:lottie/lottie.dart';
 
 class WelcomePage extends StatelessWidget {
@@ -13,7 +13,9 @@ class WelcomePage extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Lottie.asset('assets/lotties/growth_animation.json'),
+            //Lottie.asset('assets/lotties/growth_animation.json'),
+            Image.asset('assets/images/nature.jpeg'),
+            SizedBox(height: 30.0),
             FittedBox(
               child: Text(
                 'Flutter Mappp',
@@ -24,18 +26,31 @@ class WelcomePage extends StatelessWidget {
                 ),
               ),
             ),
+            SizedBox(height: 40.0),
             FilledButton(
               onPressed: () {
                 Navigator.pushReplacement(
                   context,
                   MaterialPageRoute(
                     builder: (context) {
-                      return WidgetTree();
+                      return LoginPage();
                     },
                   ),
                 );
               },
+
+              style: FilledButton.styleFrom(
+                minimumSize: Size(double.infinity, 43.0),
+              ),
               child: Text('Login'),
+            ),
+            SizedBox(height: 20.0),
+            TextButton(
+              onPressed: () {},
+              style: FilledButton.styleFrom(
+                minimumSize: Size(double.infinity, 43.0),
+              ),
+              child: Text('Get Started'),
             ),
           ],
         ),

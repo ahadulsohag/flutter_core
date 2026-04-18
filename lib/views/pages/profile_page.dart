@@ -11,41 +11,46 @@ class ProfilePage extends StatelessWidget {
     return Padding(
       padding: EdgeInsets.all(20.0),
 
-      child: Column(
-        children: [
-          HeroWidget(),
-          ListTile(
-            title: Text('Logout'),
-            onTap: () {
-              Navigator.pushReplacement(
-                context,
-                MaterialPageRoute(
-                  builder: (context) {
-                    return WelcomePage();
-                  },
-                ),
-              );
-            },
-          ),
-          Container(
-            width: double.infinity,
-            child: Padding(
-              padding: const EdgeInsets.symmetric(vertical: 10.0),
-              child: Card(
-                child: Padding(
-                  padding: const EdgeInsets.all(20.0),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text('Basic Layout', style: KTextStyle.titleTealText,),
-                      Text('Advanced Layout \nAnd Future Layout', style: KTextStyle.descriptionTealText,),
-                    ],
+      child: SingleChildScrollView(
+        child: Column(
+          children: [
+            HeroWidget(title: 'Hello'),
+            ListTile(
+              title: Text('Logout'),
+              onTap: () {
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) {
+                      return WelcomePage();
+                    },
+                  ),
+                );
+              },
+            ),
+            Container(
+              width: double.infinity,
+              child: Padding(
+                padding: const EdgeInsets.symmetric(vertical: 10.0),
+                child: Card(
+                  child: Padding(
+                    padding: const EdgeInsets.all(20.0),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text('Basic Layout', style: KTextStyle.titleTealText),
+                        Text(
+                          'Advanced Layout \nAnd Future Layout',
+                          style: KTextStyle.descriptionTealText,
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
