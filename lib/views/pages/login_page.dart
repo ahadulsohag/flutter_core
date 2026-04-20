@@ -3,15 +3,15 @@ import 'package:flutter_core/views/pages/widget_tree.dart';
 import 'package:flutter_core/widgets/hero_widget.dart';
 
 class LoginPage extends StatefulWidget {
-  const LoginPage({super.key});
-
+  const LoginPage({super.key, required this.title});
+  final String title;
   @override
   State<LoginPage> createState() => _LoginPageState();
 }
 
 class _LoginPageState extends State<LoginPage> {
-  TextEditingController controllerMail = TextEditingController();
-  TextEditingController controllerPw = TextEditingController();
+  TextEditingController controllerMail = TextEditingController(text: '123');
+  TextEditingController controllerPw = TextEditingController(text: '456');
   String confirmedMail = '123';
   String confirmedPw = '456';
   @override
@@ -32,7 +32,7 @@ class _LoginPageState extends State<LoginPage> {
 
             child: Column(
               children: [
-                HeroWidget(title: 'login'),
+                HeroWidget(title: widget.title),
                 SizedBox(height: 40.9),
                 TextField(
                   controller: controllerMail,
@@ -67,7 +67,7 @@ class _LoginPageState extends State<LoginPage> {
                   style: ElevatedButton.styleFrom(
                     minimumSize: Size(double.infinity, 38.0),
                   ),
-                  child: Text('Login'),
+                  child: Text(widget.title),
                 ),
               ],
             ),
@@ -80,7 +80,7 @@ class _LoginPageState extends State<LoginPage> {
   void loginAuth() {
     if (confirmedMail == controllerMail.text &&
         confirmedPw == controllerPw.text) {
-      Navigator.push(
+      Navigator.pushReplacement(
         context,
         MaterialPageRoute(
           builder: (context) {
