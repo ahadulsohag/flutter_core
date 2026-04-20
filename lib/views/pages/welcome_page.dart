@@ -19,6 +19,7 @@ class WelcomePage extends StatelessWidget {
                   'assets/lotties/growth_animation.json',
                   height: 200.0,
                 ),
+
                 SizedBox(height: 30.0),
                 FittedBox(
                   child: Text(
@@ -33,11 +34,11 @@ class WelcomePage extends StatelessWidget {
                 SizedBox(height: 40.0),
                 FilledButton(
                   onPressed: () {
-                    Navigator.pushReplacement(
+                    Navigator.push(
                       context,
                       MaterialPageRoute(
                         builder: (context) {
-                          return LoginPage();
+                          return LoginPage(title: 'Register');
                         },
                       ),
                     );
@@ -46,15 +47,24 @@ class WelcomePage extends StatelessWidget {
                   style: FilledButton.styleFrom(
                     minimumSize: Size(double.infinity, 43.0),
                   ),
-                  child: Text('Login'),
+                  child: Text('Get Started'),
                 ),
                 SizedBox(height: 20.0),
                 TextButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) {
+                          return LoginPage(title: 'Login');
+                        },
+                      ),
+                    );
+                  },
                   style: FilledButton.styleFrom(
                     minimumSize: Size(double.infinity, 43.0),
                   ),
-                  child: Text('Get Started'),
+                  child: Text('Login'),
                 ),
               ],
             ),
