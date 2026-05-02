@@ -22,7 +22,6 @@ class _WidgetTreeState extends State<WidgetTree> {
         title: Text('Flutter', style: TextStyle(color: Colors.red)),
         centerTitle: true,
         actions: [
-          
           IconButton(
             onPressed: () {
               selectedIconNotifier.value = !selectedIconNotifier.value;
@@ -52,6 +51,7 @@ class _WidgetTreeState extends State<WidgetTree> {
       body: ValueListenableBuilder(
         valueListenable: selectedPageNotifier,
         builder: (context, selectedPage, child) {
+          
           return pages.elementAt(selectedPage);
         },
       ),
