@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
       valueListenable: selectedIconNotifier,
       builder: (context, selectedIcon, child) {
         return MaterialApp(
-          debugShowCheckedModeBanner: false,
+          debugShowCheckedModeBanner: true,
           theme: ThemeData(
             colorScheme: ColorScheme.fromSeed(
               seedColor: Colors.teal,
