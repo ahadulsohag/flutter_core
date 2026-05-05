@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_core/data/notifiers.dart';
 import 'package:flutter_core/views/pages/home_page.dart';
+import 'package:flutter_core/views/pages/money_page.dart';
 import 'package:flutter_core/views/pages/profile_page.dart';
 import 'package:flutter_core/views/pages/settings_page.dart';
 import 'package:flutter_core/widgets/navbar_widget.dart';
 
-List<Widget> pages = [HomePage(), ProfilePage()];
+List<Widget> pages = [HomePage(), ProfilePage(), MoneyPage()];
 
 class WidgetTree extends StatefulWidget {
   const WidgetTree({super.key});
