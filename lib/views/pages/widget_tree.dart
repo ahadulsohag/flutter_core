@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_core/data/constants.dart';
 import 'package:flutter_core/data/notifiers.dart';
 import 'package:flutter_core/views/pages/home_page.dart';
 import 'package:flutter_core/views/pages/money_page.dart';
 import 'package:flutter_core/views/pages/profile_page.dart';
 import 'package:flutter_core/views/pages/settings_page.dart';
 import 'package:flutter_core/widgets/navbar_widget.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 List<Widget> pages = [HomePage(), ProfilePage(), MoneyPage()];
 
@@ -24,8 +26,11 @@ class _WidgetTreeState extends State<WidgetTree> {
         centerTitle: true,
         actions: [
           IconButton(
-            onPressed: () {
+            onPressed: () async{
               selectedIconNotifier.value = !selectedIconNotifier.value;
+              final SharedPreferences prefs = await SharedPreferences.getInstance();
+              await prefs.setBool(kConstants.themeModeKey, selectedIconNotifier.value);
+              
             },
             icon: ValueListenableBuilder(
               valueListenable: selectedIconNotifier,
@@ -36,6 +41,7 @@ class _WidgetTreeState extends State<WidgetTree> {
           ),
           IconButton(
             onPressed: () {
+              
               Navigator.push(
                 context,
                 MaterialPageRoute(
