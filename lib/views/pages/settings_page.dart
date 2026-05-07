@@ -52,12 +52,13 @@ class _SettingsPageState extends State<SettingsPage> {
       body: FutureBuilder(
         future: getData(),
         builder: (context, AsyncSnapshot snapshot) {
+          Widget widget;
           if (snapshot.connectionState == ConnectionState.waiting) {
-            return CircularProgressIndicator();
+            widget = CircularProgressIndicator();
           }
           if (snapshot.hasData) {
             Activity activity = snapshot.data;
-            return Padding(
+            widget = Padding(
               padding: EdgeInsets.symmetric(horizontal: 20.0),
               child: SingleChildScrollView(
                 child: Column(
@@ -69,8 +70,9 @@ class _SettingsPageState extends State<SettingsPage> {
               ),
             );
           } else {
-            return Center(child: Text('Error'));
+            widget = Center(child: Text('Error'));
           }
+          return widget;
         },
       ),
     );
